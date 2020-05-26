@@ -17,9 +17,10 @@ User.destroy_all
 puts "Create database: Table User"
 
 50.times do
-  # file = URI.open(Faker::Avatar.image)
+  file = URI.open(Faker::Avatar.image)
   user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , email: Faker::Internet.email, username: Faker::Internet.username, encrypted_password: Faker::Internet.password)
   user.photo.attach(io: Faker::Avatar.image)
+  user.save
 end
 
 puts "Create database: Table Sloth "
@@ -28,6 +29,7 @@ puts "Create database: Table Sloth "
   file = URI.open(Faker::Avatar.image)
   sloth = Sloth.new(name: Faker::Hipster.word, address: Faker::Address.street_address, details: Faker::Hipster.paragraph, price: Faker::Number.decimal(l_digits: 2), user_id: rand(1..50))
   sloth.photos.attach(io: file)
+  sloth.save
 end
 
 puts "Create database: Table Booking "
@@ -39,12 +41,14 @@ puts "Create database: Table Booking "
     sloth = Sloth.find_by(id: booking.sloth_id)
     total_days = end_date - start_date
     booking.total_cost = sloth.price * total_days
+    booking.save
 end
 
 puts "Create database: Table Review "
 
 20.times do
-  Review.new(content: Faker::Hipster.paragraph, rating: rand(1..5), booking_id: rand(1..30))
+  review = Review.new(content: Faker::Hipster.paragraph, rating: rand(1..5), booking_id: rand(1..30))
+  review.save
 end
 
 puts "Database created!"
