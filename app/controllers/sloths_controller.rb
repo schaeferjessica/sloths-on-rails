@@ -1,5 +1,5 @@
 class SlothsController < ApplicationController
-  before_action :set_sloth, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_sloth, only: [ :show, :edit, :update, :destroy]
 
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
@@ -15,12 +15,24 @@ class SlothsController < ApplicationController
 
   def create
     authorize @sloth
+    @sloth = Sloth.new(sloth_params)
+
+    if @sloth.save
+      redirect_to @sloth, notice: 'Sloth was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @sloth.update(sloth_params)
+      redirect_to @sloth, notice: 'Sloth was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,6 +48,6 @@ class SlothsController < ApplicationController
   end
 
   def sloth_params
-    params.require(:sloth).permit(:name, :address, :price)
+    params.require(:sloth).permit(:name, :address, :price, photos: [])
   end
 end

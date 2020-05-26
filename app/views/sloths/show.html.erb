@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @sloth.name.upcase %></h1>
   <% if @sloth.photo? %>
-    <%= cl_image_tag @sloth.photo.path, crop: :fill %>
+    <%= cl_image_tag @sloth.photos.key, crop: :fill %>
   <% else %>
     <%= image_tag 'https://www.publicdomainpictures.net/pictures/190000/velka/sloth-drawing.jpg', width: 350 %>
   <% end %>
