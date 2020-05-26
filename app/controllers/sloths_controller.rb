@@ -1,5 +1,6 @@
 class SlothsController < ApplicationController
   before_action :set_sloth, only: [ :show, :edit, :update, :destroy ]
+
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
   end
