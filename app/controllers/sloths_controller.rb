@@ -30,7 +30,7 @@ class SlothsController < ApplicationController
   private
 
   def set_sloth
-    sloth = Sloth.find(params[:id])
+    @sloth = Sloth.find(params[:id])
     authorize @sloth
   end
 
