@@ -16,17 +16,17 @@ User.destroy_all
 
 puts "Create database: Table User"
 
-50.time do
-  file = URI.open(Faker::Avatar.image)
+50.times do
+  # file = URI.open(Faker::Avatar.image)
   user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , email: Faker::Internet.email, username: Faker::Internet.username, encrypted_password: Faker::Internet.password)
-  user.photo.attach(io: file)
+  user.photo.attach(io: Faker::Avatar.image)
 end
 
 puts "Create database: Table Sloth "
 
-20.time do
+20.times do
   file = URI.open(Faker::Avatar.image)
-  sloth = Sloth.new(name: Faker::Hipster.word, address: Faker::Address.street_address, details: Faker::Hipster.paragraph , price: Faker::Number.decimal(l_digits: 2), user_id: rand(1..50) photo:)
+  sloth = Sloth.new(name: Faker::Hipster.word, address: Faker::Address.street_address, details: Faker::Hipster.paragraph, price: Faker::Number.decimal(l_digits: 2), user_id: rand(1..50))
   sloth.photos.attach(io: file)
 end
 
