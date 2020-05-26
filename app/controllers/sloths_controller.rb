@@ -1,5 +1,5 @@
 class SlothsController < ApplicationController
-  before_action :set_sloth, only: [ :show, :edit, :update, :destroy]
+  before_action :set_sloth, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
@@ -14,7 +14,6 @@ class SlothsController < ApplicationController
   end
 
   def create
-    authorize @sloth
     @sloth = Sloth.new(sloth_params)
 
     if @sloth.save
@@ -22,6 +21,7 @@ class SlothsController < ApplicationController
     else
       render :new
     end
+    authorize @sloth
   end
 
   def edit
