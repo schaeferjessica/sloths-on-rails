@@ -1,3 +1,4 @@
+<div class ="container">
 <%= simple_form_for(@sloth) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -14,3 +15,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+</div>
