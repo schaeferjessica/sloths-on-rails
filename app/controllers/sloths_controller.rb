@@ -15,6 +15,12 @@ class SlothsController < ApplicationController
 
   def create
     authorize @sloth
+    @sloth = Sloth.new(sloth_params)
+    if @sloth.save
+      redirect_to sloth_path(@sloth)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -36,6 +42,6 @@ class SlothsController < ApplicationController
   end
 
   def sloth_params
-    params.require(:sloth).permit(:name, :address, :price)
+    params.require(:sloth).permit(:name, :address, :price, :photo)
   end
 end
