@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SlothsOnRails</title>
+    <title>rent a sloths</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,9 +12,10 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
     <%= yield %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
