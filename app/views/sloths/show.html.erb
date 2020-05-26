@@ -1,1 +1,24 @@
-<h1>@sloth.name</h1>
+<div class="container">
+  <h1><%= @sloth.name.upcase %></h1>
+  <% if @sloth.photo? %>
+    <%= cl_image_tag @sloth.photo.path, crop: :fill %>
+  <% else %>
+    <%= image_path 'https://w7.pngwing.com/pngs/182/689/png-transparent-brown-sloth-hanging-on-tree-branch-illustration-sloth-drawing-others.png'%>
+  <% end %>
+
+  <h3>ABOUT <%= @sloth.name.upcase %></h3>
+    <p><%= @sloth.about %></p>
+
+  <div>
+    <%= link_to "Book", new_sloth_booking_path(@booking)%>
+  </div>
+  <div>
+  <% if current_user == @sloth.user %>
+    <%= link_to "Edit", edit_sloth_path(@sloth)%>
+  <% end %>
+
+  <% if current_user == @sloth.user %>
+    <%= link_to "Delete", destroy_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }%>
+  <% end %>
+  </div>
+</div>
