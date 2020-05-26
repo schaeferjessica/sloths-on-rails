@@ -8,11 +8,21 @@
 
 require "open-uri"
 
+puts "Cleaning database..."
+Review.destroy_all
+Booking.destroy_all
+Sloth.destroy_all
+User.destroy_all
+
+puts "Create database: Table User"
+
 50.time do
   file = URI.open(Faker::Avatar.image)
   user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name , email: Faker::Internet.email, username: Faker::Internet.username, encrypted_password: Faker::Internet.password)
   user.photo.attach(io: file)
 end
+
+puts "Create database: Table Sloth "
 
 20.time do
   file = URI.open(Faker::Avatar.image)
@@ -20,6 +30,7 @@ end
   sloth.photos.attach(io: file)
 end
 
+puts "Create database: Table Booking "
 
 30.times do
   booking = Booking.new(user_id: rand(1..50), sloth_id: rand(1..20), start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period)
@@ -30,6 +41,10 @@ end
     booking.total_cost = sloth.price * total_days
 end
 
+puts "Create database: Table Review "
+
 20.times do
   Review.new(content: Faker::Hipster.paragraph, rating: rand(1..5), booking_id: rand(1..30))
 end
+
+puts "Database created!"
