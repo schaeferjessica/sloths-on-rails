@@ -10,4 +10,115 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/button";
+@import "components/signup";
 @import "pages/index";
+
+// color
+$base-color: #f5f1ea;
+$black-color: #262627;
+$blue-color: #c6dcfd;
+$red-color: #e63946;
+
+// media query
+$xsmall: 600px;
+$small: 767px;
+$medium: 992px;
+$large: 1024px;
+$xlarge: 1199px;
+$max-width: 1440px;
+
+//fonts
+$font-roboto: 'Roboto', sans-serif;
+$font-sans: 'Open Sans', sans-serif;
+
+//fonts
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+html {
+  box-sizing: border-box;
+  font-family: $font-roboto;
+  color: $black-color;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $black-color;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 38px;
+  color: $black-color;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: $font-sans;
+  font-size: 22px;
+  color: $black-color;
+  font-weight: 300;
+  line-height: 38px;
+}
+
+p {
+  font-size: 14px;
+  color: $black-color;
+  font-weight: 400;
+}
+
+label {
+  font-size: 14px;
+  color: $black-color;
+  font-weight: 400;
+}
+
+button,
+input[type='submit'],
+input {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select {
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none; // hide arrow for chrome
+  -moz-appearance: none; // hide arrow for firefox
+}

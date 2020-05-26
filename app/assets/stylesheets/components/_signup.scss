@@ -1,0 +1,20 @@
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+      max-width: 700px;
+    }
+
+  .form-control {
+    border: none;
+    border-radius: 4px;
+  }
+
+  .btn-ghost {
+    width: 100px;
+  }
+}
