@@ -9,7 +9,10 @@
   <h3>ABOUT <%= @sloth.name.upcase %></h3>
     <p><%= @sloth.about %></p>
 
-
+  <div>
+    <%= link_to "Book", new_sloth_booking_path(@booking)%>
+  </div>
+  <div>
   <% if current_user == @sloth.user %>
     <%= link_to "Edit", edit_sloth_path(@sloth)%>
   <% end %>
@@ -17,4 +20,5 @@
   <% if current_user == @sloth.user %>
     <%= link_to "Delete", destroy_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }%>
   <% end %>
+  </div>
 </div>
