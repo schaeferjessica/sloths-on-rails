@@ -14,6 +14,13 @@ class SlothsController < ApplicationController
   end
 
   def create
+    @sloth = Sloth.new(sloth_params)
+
+    if @sloth.save
+      redirect_to @sloth, notice: 'Sloth was successfully created.'
+    else
+      render :new
+    end
     authorize @sloth
   end
 
@@ -21,6 +28,11 @@ class SlothsController < ApplicationController
   end
 
   def update
+    if @sloth.update(sloth_params)
+      redirect_to @sloth, notice: 'Sloth was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,6 +48,6 @@ class SlothsController < ApplicationController
   end
 
   def sloth_params
-    params.require(:sloth).permit(:name, :address, :price)
+    params.require(:sloth).permit(:name, :address, :price, photos: [])
   end
 end
