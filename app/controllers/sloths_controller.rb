@@ -15,7 +15,8 @@ class SlothsController < ApplicationController
 
   def create
     @sloth = Sloth.new(sloth_params)
-
+    @sloth.user = current_user
+    raise
     if @sloth.save
       redirect_to @sloth, notice: 'Sloth was successfully created.'
     else
@@ -48,6 +49,6 @@ class SlothsController < ApplicationController
   end
 
   def sloth_params
-    params.require(:sloth).permit(:name, :address, :price, photos: [])
+    params.require(:sloth).permit(:name, :address, :price, :details, photos: [])
   end
 end

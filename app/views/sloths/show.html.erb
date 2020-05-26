@@ -1,24 +1,30 @@
 <div class="container">
   <h1><%= @sloth.name.upcase %></h1>
-  <% if @sloth.photo? %>
-    <%= cl_image_tag @sloth.photos.key, crop: :fill %>
+  <% if @sloth.photos.attached? %>
+    <% @sloth.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% else %>
     <%= image_tag 'https://www.publicdomainpictures.net/pictures/190000/velka/sloth-drawing.jpg', width: 350 %>
   <% end %>
 
+  <div>
   <h3>ABOUT <%= @sloth.name.upcase %></h3>
     <p> <%= @sloth.details %> </p>
+  </div>
+
+  <div >
+    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
+    <%= link_to "Book", new_sloth_booking_path(@sloth, @booking), class: "btn btn-primary m-3"%>
+  </div>
 
   <div>
-    <%= link_to "Book", new_sloth_booking_path(@sloth, @booking)%>
-  </div>
-  <div>
   <% if current_user == @sloth.user %>
-    <%= link_to "Edit", edit_sloth_path(@sloth)%>
+    <%= link_to "Edit", edit_sloth_path(@sloth), class: "btn btn-primary m-3"%>
   <% end %>
 
   <% if current_user == @sloth.user %>
-    <%= link_to "Delete", sloth_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }%>
+    <%= link_to "Delete", sloth_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary m-3"%>
   <% end %>
   </div>
 </div>
