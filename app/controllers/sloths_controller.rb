@@ -14,13 +14,13 @@ class SlothsController < ApplicationController
   end
 
   def create
-    authorize @sloth
     @sloth = Sloth.new(sloth_params)
     if @sloth.save
       redirect_to sloth_path(@sloth)
     else
       render 'new'
     end
+    authorize @sloth
   end
 
   def edit
