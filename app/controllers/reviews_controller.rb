@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_sloth, only: [:new, :create]
+  before_action :find_booking, only: [:new, :create]
 
   def new
     @review = Review.new
@@ -7,9 +7,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.sloth = @sloth
+    @review.booking = @booking
     if @review.save
-      redirect_to sloth_path(@sloth)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -17,8 +17,8 @@ class ReviewsController < ApplicationController
 
   private
 
-  def find_sloth
-    @sloth = Sloth.find(params[:sloth_id])
+  def find_booking
+    @booking = Booking.find(params[:booking_id])
   end
 
   def review_params
