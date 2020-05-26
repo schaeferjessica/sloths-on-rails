@@ -3,4 +3,7 @@ class Sloth < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, :through => :bookings, dependent: :destroy
   validates :name, :address, :price, presence: true
+
+  has_many_attached :photos
+
 end
