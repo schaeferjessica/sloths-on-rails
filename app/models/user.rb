@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :reviews, :through => :bookings, dependent: :destroy
   validates :username, :first_name, :last_name, :email, presence: true
   validates :username, :email, uniqueness: true
+
+  has_one_attached :photo
 end
