@@ -1,10 +1,12 @@
-<div class="container">
-<h1>Check out these great sloths!</h1>
-🦥🦥🦥
-<p>Book your sleepy friend today.</p>
-<div class="cards">
-  <% @sloths.each do |sloth| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<% sloth.photos %>)">
+<div class= "container">
+  <h1>Check out these great sloths!</h1>
+  <p class="emoji">🦥🦥🦥<p>
+  <%= link_to "add a sloth", new_sloth_path, class: "btn" %>
+  <p>Book your sleepy friend today.</p>
+  <div class="cards">
+    <% @sloths.each do |sloth| %>
+      <!-- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<% sloth.photo %>)"> -->
+        <%= cl_image_tag sloth.photos.first.key, class:"card-category" %>
       <%= link_to sloth.name, sloth_path(sloth) %>
     </div>
   <% end %>
