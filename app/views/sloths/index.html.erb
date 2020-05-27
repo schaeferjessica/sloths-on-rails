@@ -9,8 +9,9 @@
   </div>
   <div class="cards">
     <% @sloths.each do |sloth| %>
-      <div class="card-category" style="background-image: url(<%= cl_image_path sloth.photos.first.key %>)">
-        <%= link_to sloth.name, sloth_path(sloth) %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
+        <%= link_to sloth.name, sloth_path(sloth), class: "name" %>
+        <%= link_to sloth.address, sloth_path(sloth), class: "address" %>
       </div>
     <% end %>
   </div>
