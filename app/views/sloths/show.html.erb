@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%= @sloth.name.upcase %></h1>
+  <i class="fas fa-map-pin"><%= @sloth.address %></i>
   <% if @sloth.photos.attached? %>
     <% @sloth.photos.each do |photo| %>
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
@@ -15,10 +16,14 @@
 
   <div >
     <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
-    <%= link_to "Book", new_sloth_booking_path(@sloth, @booking), class: "btn btn-primary m-3"%>
   </div>
 
   <div>
+  <% if current_user != @sloth.user %>
+    <%= link_to "Book", new_sloth_booking_path(@sloth, @booking), class: "btn btn-primary m-3"%>
+  <% end %>
+
+
   <% if current_user == @sloth.user %>
     <%= link_to "Edit", edit_sloth_path(@sloth), class: "btn btn-primary m-3"%>
   <% end %>
