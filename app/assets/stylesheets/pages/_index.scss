@@ -1,2 +1,23 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.context {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+
+  h2 {
+    flex-basis: 45%;
+    font-size: 40px;
+    font-weight: lighter;
+    line-height: 54px;
+  }
+
+  p {
+    flex-basis: 45%;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 28px;
+  }
+}
