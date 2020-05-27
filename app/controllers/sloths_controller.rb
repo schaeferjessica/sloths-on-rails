@@ -3,6 +3,14 @@ class SlothsController < ApplicationController
 
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
+    @sloths = Sloth.geocoded # returns sloths with coordinates
+
+    @markers = @sloths.map do |sloth|
+      {
+        lat: sloth.latitude,
+        lng: sloth.longitude
+      }
+    end
   end
 
   def show
@@ -16,7 +24,6 @@ class SlothsController < ApplicationController
   def create
     @sloth = Sloth.new(sloth_params)
     @sloth.user = current_user
-    raise
     if @sloth.save
       redirect_to @sloth, notice: 'Sloth was successfully created.'
     else
