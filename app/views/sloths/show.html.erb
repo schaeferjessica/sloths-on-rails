@@ -12,13 +12,10 @@
   <div>
   <h3>ABOUT <%= @sloth.name.upcase %></h3>
     <p> <%= @sloth.details %> </p>
+    <p> Price:<%= @sloth.price %>€ </p>
   </div>
 
-  <div >
-    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
-  </div>
-
-  <div>
+<div>
   <% if current_user != @sloth.user %>
     <%= link_to "Book", new_sloth_booking_path(@sloth, @booking), class: "btn btn-primary m-3"%>
   <% end %>
@@ -31,5 +28,9 @@
   <% if current_user == @sloth.user %>
     <%= link_to "Delete", sloth_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary m-3"%>
   <% end %>
+
+  <div >
+    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
+  </div>
   </div>
 </div>
