@@ -5,6 +5,13 @@
   height: 100vh;
 }
 
+.show-photo {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
