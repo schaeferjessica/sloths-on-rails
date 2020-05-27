@@ -9,13 +9,17 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @sloth = Sloth.find(params[:sloth_id])
     @booking = Booking.new
     authorize @booking
   end
 
   def create
+    @sloth = Sloth.find(params[:sloth_id])
     @booking = Booking.new(booking_params)
+    @booking.sloth = @sloth
     @booking.user = current_user
+    @booking.status = "Pending"
     authorize @booking
 
     if @booking.save
@@ -44,7 +48,7 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
-    booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 

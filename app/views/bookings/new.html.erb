@@ -1,0 +1,11 @@
+<div class="container">
+<h1>Book <%= @sloth.name %></h1>
+<%= simple_form_for [@sloth, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Create your booking", class: "btn btn-primary" %>
+<% end %>
+
+<%#= link_to "Back", sloth_path(@sloth), class: "btn btn-primary" %>
+<%= link_to "Home", sloths_path, class: "btn btn-primary" %>
+</div>

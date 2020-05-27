@@ -1,0 +1,8 @@
+<div class="container">
+<h1>Your bookings</h1>
+🦥🦥🦥
+
+  <% @bookings.each do |booking| %>
+    <%= link_to booking.sloth.name, booking_path(booking) %>
+  <% end %>
+</div>
