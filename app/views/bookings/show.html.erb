@@ -26,6 +26,10 @@
   <% end %>
 
   <% if current_user == @booking.user %>
+    <%= link_to "Review", new_booking_review_path(@booking), class: "btn btn-primary m-3"%>
+  <% end %>
+
+  <% if current_user == @booking.user %>
     <%= link_to "Delete booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary m-3"%>
   <% end %>
   </div>
