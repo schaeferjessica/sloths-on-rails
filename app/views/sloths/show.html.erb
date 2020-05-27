@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @sloth.name.upcase %></h1>
+  <h1 class="h1"><%= @sloth.name.upcase %></h1>
   <i class="fas fa-map-pin"><%= @sloth.address %></i>
   <div class="show-photo">
   <% if @sloth.photos.attached? %>
@@ -11,13 +11,13 @@
   <% end %>
   </div>
 
-  <div>
+  <div id="sloth-about">
   <h3>ABOUT <%= @sloth.name.upcase %></h3>
     <p> <%= @sloth.details %> </p>
     <p> Price:<%= @sloth.price %>€ </p>
   </div>
 
-<div>
+<div class="sloth-menu">
   <% if current_user != @sloth.user %>
     <%= link_to "Book", new_sloth_booking_path(@sloth, @booking), class: "btn btn-primary m-3"%>
   <% end %>
