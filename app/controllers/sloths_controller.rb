@@ -3,6 +3,14 @@ class SlothsController < ApplicationController
 
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
+    @sloths = Sloth.geocoded # returns sloths with coordinates
+
+    @markers = @sloths.map do |sloth|
+      {
+        lat: sloth.latitude,
+        lng: sloth.longitude
+      }
+    end
   end
 
   def show
