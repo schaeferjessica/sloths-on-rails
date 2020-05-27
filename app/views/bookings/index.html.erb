@@ -5,4 +5,9 @@
   <% @bookings.each do |booking| %>
     <%= link_to booking.sloth.name, booking_path(booking) %>
   <% end %>
+
+  <div >
+    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
+  </div>
+
 </div>
