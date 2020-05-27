@@ -1,6 +1,6 @@
 .btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: #4a4a4a;
+  border: 1px solid #4a4a4a;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -10,4 +10,21 @@
 
 .btn-ghost:hover {
   opacity: 1;
+}
+
+.btn-book {
+  color: $base-color;
+  border: 2px solid $base-color;
+  background-color: transparent;
+  font-size: 22px;
+  border-radius: 4px;
+  padding: 5px 15px;
+  margin: 10px;
+  font-weight: normal;
+}
+
+.btn-book:hover {
+  color: $base-color;
+  border: 2px solid $black-color;
+  background-color: $black-color;
 }

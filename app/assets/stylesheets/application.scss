@@ -7,20 +7,13 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import 'mapbox-gl/dist/mapbox-gl';
-
-
-// Your CSS partials
-@import "components/index";
-@import "components/button";
-@import "components/signup";
-@import "pages/index";
+@import "mapbox-gl/dist/mapbox-gl";
 
 // color
 $base-color: #f5f1ea;
 $black-color: #262627;
-$blue-color: #c6dcfd;
-$red-color: #e63946;
+$brown-color: #6d6875;
+$red-color: #e5989b;
 
 // media query
 $xsmall: 600px;
@@ -31,12 +24,19 @@ $xlarge: 1199px;
 $max-width: 1440px;
 
 //fonts
-$font-roboto: 'Roboto', sans-serif;
-$font-sans: 'Open Sans', sans-serif;
+$font-roboto: "Roboto", sans-serif;
+$font-sans: "Open Sans", sans-serif;
 
 //fonts
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+// Your CSS partials
+@import "components/index";
+@import "components/button";
+@import "components/signup";
+@import "components/banner";
+@import "pages/index";
 
 html {
   box-sizing: border-box;
@@ -65,6 +65,12 @@ ul {
 a {
   text-decoration: none;
   color: $black-color;
+  font-family: $font-roboto;
+}
+
+a:hover {
+  color: $brown-color;
+  text-decoration: none;
 }
 
 img {
@@ -75,6 +81,7 @@ h1 {
   font-size: 38px;
   color: $black-color;
   font-weight: normal;
+  font-family: $font-roboto;
 }
 
 h2 {
@@ -83,12 +90,14 @@ h2 {
   color: $black-color;
   font-weight: 300;
   line-height: 38px;
+  font-family: $font-roboto;
 }
 
 p {
   font-size: 14px;
   color: $black-color;
   font-weight: 400;
+  font-family: $font-roboto;
 }
 
 label {
@@ -98,7 +107,7 @@ label {
 }
 
 button,
-input[type='submit'],
+input[type="submit"],
 input {
   border: none;
   border-radius: 0;
@@ -113,6 +122,7 @@ input {
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
+  font-family: $font-roboto;
 }
 
 select {
