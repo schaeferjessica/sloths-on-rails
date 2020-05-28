@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Your booking for <%= @booking.sloth.name.upcase %></h1>
   <h4>From <%= @booking.start_date %> to <%= @booking.end_date %></h4>
-  <h5>Total cost: <%= @booking.total_cost %></h5>
+  <h5>Total cost: <%= @booking.total_cost %>€</h5>
   <i class="fas fa-map-pin"><%= @booking.sloth.address %></i>
   <% if @booking.sloth.photos.attached? %>
     <% @booking.sloth.photos.each do |photo| %>
