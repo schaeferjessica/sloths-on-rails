@@ -4,12 +4,12 @@ class SlothsController < ApplicationController
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
 
-    @sloths = Sloth.geocoded # returns sloths with coordinates
-    @markers = @sloths.map do |sloth|
-      {
-        lat: sloth.latitude,
-        lng: sloth.longitude
-      }
+    if params[:query].present?
+      @sloths = Sloth.near(params[:query], 1000).geocoded
+      params_maps
+    else
+      @sloths = Sloth.geocoded # returns sloths with coordinates
+      params_maps
     end
   end
 
@@ -18,13 +18,14 @@ class SlothsController < ApplicationController
     @markers = [{
         lat: @sloth.latitude,
         lng: @sloth.longitude
+        # infoWindow: render_to_string(partial: "info_window", locals: { sloth: sloth })
       }]
     @sloth = Sloth.find(params[:id])
     @booking = Booking.new
     authorize @booking
-    @reviews = Review.joins(:booking).where(bookings: { sloth_id: @sloth.id })
+    @reviews = @sloth.reviews
   end
-
+  
   def new
     @sloth = Sloth.new
     authorize @sloth
@@ -66,5 +67,15 @@ class SlothsController < ApplicationController
 
   def sloth_params
     params.require(:sloth).permit(:name, :address, :price, :details, photos: [])
+  end
+
+  def params_maps
+    @markers = @sloths.map do |sloth|
+      {
+        lat: sloth.latitude,
+        lng: sloth.longitude,
+        infoWindow: render_to_string(partial: "map", locals: { sloth: sloth })
+      }
+    end
   end
 end

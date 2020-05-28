@@ -1,6 +1,16 @@
 <div id="banner" class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.mos.cms.futurecdn.net/sZEyugnMdPtgJzC8wU27sU.jpg)">
   <h1>Book your sleepy friend today.</h1>
-  <button class= "btn-search">Search</button>
+  <%= form_tag sloths_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control auto-address-fill",
+    placeholder: "Which location?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-search" %>
+<% end %>
+
+  <!-- <button class= "btn-search">Search</button> -->
+
 </div>
 
 <div class= "container">
