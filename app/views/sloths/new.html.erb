@@ -5,7 +5,7 @@
   <%= f.input :address %>
   <%= f.input :details %>
   <%= f.input :price %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
   <%= f.submit "Add Sloth", class: "btn btn-primary" %>
   <% end %>
 <div>

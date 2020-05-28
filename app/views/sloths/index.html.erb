@@ -21,10 +21,14 @@
   </div>
   <div class="cards">
     <% @sloths.each do |sloth| %>
+      <%= link_to sloth_path(sloth) do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
-        <%= link_to sloth.name, sloth_path(sloth), class: "name" %>
-        <%= link_to sloth.address, sloth_path(sloth), class: "address" %>
+        <h2 class="name"><%= sloth.name %></h2>
+        <h4 class="address"><%= sloth.address %></h4>
+        <%#= link_to sloth.name, sloth_path(sloth), class: "name" %>
+        <%#= link_to sloth.address, sloth_path(sloth), class: "address" %>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
