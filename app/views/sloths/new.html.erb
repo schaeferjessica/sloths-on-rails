@@ -4,14 +4,17 @@
     <p>lets set up your listing</p>
   </div>
 <%= simple_form_for @sloth do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address, input_html: { class: 'auto-address-fill' } %>
-  <%= f.input :details %>
-  <%= f.input :price %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
-  <%= f.submit "create new sloth", class: "btn btn-dark" %>
+  <div class="form-wrapper">
+    <%= f.input :name %>
+    <%= f.input :address, input_html: { class: 'auto-address-fill' } %>
+    <%= f.input :price %>
+  </div>
+    <%= f.input :details %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
+
+  <div class="btn-wrapper">
+    <%= link_to "Back", sloths_path, class: "btn-back" %>
+    <%= f.submit "create new sloth", class: "btn" %>
+  </div>
   <% end %>
-<div>
-<%= link_to "Back", sloths_path, class: "btn btn-dark m-3" %>
-</div>
 </div>
