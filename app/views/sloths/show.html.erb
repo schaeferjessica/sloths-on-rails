@@ -24,7 +24,7 @@
 
   <div class="form-wrapper">
     <% if current_user != @sloth.user %>
-    <h1>Book <%= @sloth.name %></h1>
+    <h2>Book <%= @sloth.name %></h2>
     <%= simple_form_for [@sloth, @booking] do |f| %>
       <div class="from-group-wrapper">
         <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
