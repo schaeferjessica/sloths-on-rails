@@ -7,6 +7,38 @@
 
   .about {
     flex: 1 1 48%;
+    text-align: start;
+    padding-left: 60px;
+
+    p {
+      line-height: 26px;
+      font-size: 14px
+    }
+
+    .price {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    span {
+      font-weight: normal;
+    }
+  }
+
+  .review {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+
+    .fa-heart {
+      font-size: 24px;
+      margin: 10px;
+    }
+
+    .review-content {
+      margin: 0;
+    }
   }
 
   .intro {
@@ -19,7 +51,7 @@
   }
 
   i {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .top-wrapper {
@@ -27,10 +59,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 50px 0;
-  }
-
-  h2 {
-    margin: 0;
   }
 
   .btn-wrapper {

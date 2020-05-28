@@ -18,22 +18,24 @@
     <div class="about">
       <h2>ABOUT <%= @sloth.name.upcase %></h2>
       <p><%= @sloth.details %></p>
-      <p>Price:<%= @sloth.price %>€</p>
+      <p class="price"><span>Price: </span><%= @sloth.price %>€</p>
 
-      <div id="reviews">
+      <div id="reviews" class="review">
         <% if @reviews.blank? %>
-          <p id="add-first-review">No reviews yet</p>
+          <h3 id="add-first-review">No reviews yet</h3>
         <% end %>
         <% if @reviews.any? %>
-          <p>Reviews</p>
           <% @reviews.each do |review| %>
-            <% review.rating.times do  %>
-            <span class="fa fa-star checked" style="color:#ECB867;"></span>
-          <% end %>
-          <% review.blank_stars.times do %>
-            <span class="far fa-star" style="color:#ECB867;"></span>
-          <% end %>
-            <p><%= review.content %></p>
+            <p class="review-content"><%= review.content %></p>
+            <div class="hearts">
+              <% review.rating.times do  %>
+              <span class="fas fa-heart checked" style="color:#FF1717;"></span>
+              <% end %>
+
+              <% review.blank_stars.times do %>
+                <span class="fas fa-heart" style="color: #EF5A5A;"></span>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
       </div>
