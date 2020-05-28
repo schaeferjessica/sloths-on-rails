@@ -8,7 +8,8 @@ class SlothsController < ApplicationController
     @markers = @sloths.map do |sloth|
       {
         lat: sloth.latitude,
-        lng: sloth.longitude
+        lng: sloth.longitude,
+        infoWindow: render_to_string(partial: "map", locals: { sloth: sloth })
       }
     end
   end
@@ -18,6 +19,7 @@ class SlothsController < ApplicationController
     @markers = [{
         lat: @sloth.latitude,
         lng: @sloth.longitude
+        # infoWindow: render_to_string(partial: "info_window", locals: { sloth: sloth })
       }]
     @sloth = Sloth.find(params[:id])
     @booking = Booking.new
