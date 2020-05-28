@@ -93,12 +93,21 @@
   .form-wrapper {
     margin: 50px 0;
 
+    .form-group {
+      margin-bottom: 40px;
+      flex: 1 1 45%;
+    }
+
     input {
       background-color: #262627;
       color: #f5f1ea;
       padding: 10px 20px;
       border-radius: 3px;
       margin: 10px;
+    }
+
+    .from-group-wrapper {
+      display: flex;
     }
   }
 

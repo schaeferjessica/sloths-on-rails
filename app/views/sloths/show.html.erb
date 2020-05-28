@@ -26,18 +26,17 @@
     <% if current_user != @sloth.user %>
     <h1>Book <%= @sloth.name %></h1>
     <%= simple_form_for [@sloth, @booking] do |f| %>
-      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <div class="from-group-wrapper">
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      </div>
       <%= f.submit "Create your booking", class:"book-btn"%>
       <% end %>
     <% end %>
   </div>
 
   <div class="btn-wrapper">
-    <%= link_to "Back", sloths_path, class: "btn m-3"%>
-
     <div>
-      <%= link_to "Home", sloths_path, class: "btn" %>
       <% if current_user == @sloth.user %>
         <%= link_to "Edit", edit_sloth_path(@sloth), class: "btn m-3"%>
       <% end %>
