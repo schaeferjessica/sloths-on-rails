@@ -23,8 +23,9 @@ class SlothsController < ApplicationController
     @sloth = Sloth.find(params[:id])
     @booking = Booking.new
     authorize @booking
+    @reviews = @sloth.reviews
   end
-
+  
   def new
     @sloth = Sloth.new
     authorize @sloth
