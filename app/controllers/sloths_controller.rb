@@ -1,6 +1,6 @@
 class SlothsController < ApplicationController
   before_action :set_sloth, only: [ :show, :edit, :update, :destroy ]
-
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
 
