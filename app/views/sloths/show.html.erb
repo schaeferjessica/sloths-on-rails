@@ -26,10 +26,7 @@
   <% end %>
   </div>
 </div>
-
 <%= link_to "Home", sloths_path, class: "btn btn-primary" %>
-
-
   <% if current_user == @sloth.user %>
     <%= link_to "Edit", edit_sloth_path(@sloth), class: "btn btn-primary m-3"%>
   <% end %>
@@ -47,9 +44,14 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-  <h3>REVIEWS</h3>
-  <% @reviews.each do |review| %>
+  
+  <% if @reviews.blank? %>
+    <h3 id="add-first-review">No reviews yet</h3>
+  <% end %>
+  <div id="reviews">
+    <% if @reviews.any? %>
+      <h4>Reviews</h4>
+      <% @reviews.each do |review| %>
     <% review.rating.times do  %>
       <span class="fa fa-star checked" style="color:#ECB867;"></span>
     <% end %>
@@ -58,5 +60,6 @@
     <% end %>
     <p><%= review.content %></p>
   <% end %>
+    <% end %>
 </div>
 
