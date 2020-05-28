@@ -1,59 +1,74 @@
-<div class="container">
-  <h1><%= @sloth.name.upcase %></h1>
-  <i class="fas fa-map-pin"><%= @sloth.address %></i>
-    <div class="show-photo">
-    <% if @sloth.photos.attached? %>
-      <% @sloth.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, :width=>400, :height=>300, :crop=>"fill" %>
-      <% end %>
-    <% end %>
-    </div>
-  <div>
-  <h3>ABOUT <%= @sloth.name.upcase %></h3>
-    <p> <%= @sloth.details %> </p>
-    <p> Price:<%= @sloth.price %>€ </p>
+<div class="container show">
+  <div class="top-wrapper">
+    <h1 style="margin: 0;"><%= @sloth.name.upcase %></h1>
+    <i class="fas fa-map-marker"><h2><%= @sloth.address %></h2></i>
   </div>
-  <div class="container">
-    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">  <% if current_user != @sloth.user %>
-      <h1>Book <%= @sloth.name %></h1>
-      <%= simple_form_for [@sloth, @booking] do |f| %>
-        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+
+  <div class="show-wrapper">
+    <div class="intro">
+      <div class="show-photo">
+        <% if @sloth.photos.attached? %>
+          <% @sloth.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, :crop=>"fill" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="about">
+      <h2>ABOUT <%= @sloth.name.upcase %></h2>
+      <p><%= @sloth.details %></p>
+      <p>Price:<%= @sloth.price %>€</p>
+
+      <div id="reviews">
+        <% if @reviews.blank? %>
+          <p id="add-first-review">No reviews yet</p>
+        <% end %>
+        <% if @reviews.any? %>
+          <p>Reviews</p>
+          <% @reviews.each do |review| %>
+            <% review.rating.times do  %>
+            <span class="fa fa-star checked" style="color:#ECB867;"></span>
+          <% end %>
+          <% review.blank_stars.times do %>
+            <span class="far fa-star" style="color:#ECB867;"></span>
+          <% end %>
+            <p><%= review.content %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-wrapper">
+    <% if current_user != @sloth.user %>
+    <h1>Book <%= @sloth.name %></h1>
+    <%= simple_form_for [@sloth, @booking] do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.submit "Create your booking" %>
       <% end %>
     <% end %>
+  </div>
+
+
+  <div class="btn-wrapper">
+    <%= link_to "Back", sloths_path, class: "btn m-3"%>
+
+    <div>
+      <%= link_to "Home", sloths_path, class: "btn" %>
+      <% if current_user == @sloth.user %>
+        <%= link_to "Edit", edit_sloth_path(@sloth), class: "btn m-3"%>
+      <% end %>
+      <% if current_user == @sloth.user %>
+        <%= link_to "Delete", sloth_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn m-3"%>
+      <% end %>
     </div>
   </div>
-  <%= link_to "Home", sloths_path, class: "btn btn-primary" %>
-  <% if current_user == @sloth.user %>
-    <%= link_to "Edit", edit_sloth_path(@sloth), class: "btn btn-primary m-3"%>
-  <% end %>
-  <% if current_user == @sloth.user %>
-    <%= link_to "Delete", sloth_path(@sloth), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary m-3"%>
-  <% end %>
-  <div>
-    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
-  </div>
-    <div id="map", class = "mt-3 container",
-       style="width: 100%; height: 300px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  <div id="reviews">
-    <% if @reviews.blank? %>
-      <h3 id="add-first-review">No reviews yet</h3>
-    <% end %>
-    <% if @reviews.any? %>
-        <h4>Reviews</h4>
-      <% @reviews.each do |review| %>
-        <% review.rating.times do  %>
-        <span class="fa fa-star checked" style="color:#ECB867;"></span>
-      <% end %>
-      <% review.blank_stars.times do %>
-        <span class="far fa-star" style="color:#ECB867;"></span>
-      <% end %>
-      <p><%= review.content %></p>
-      <% end %>
-    <% end %>
+
+  <div id="map", class="mt-3 container",
+     style="width: 100%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>

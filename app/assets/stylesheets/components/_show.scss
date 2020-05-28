@@ -1,0 +1,48 @@
+.show {
+
+  .show-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .about {
+    flex: 1 1 48%;
+  }
+
+  .intro {
+    flex: 1 1 48%;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  i {
+    font-size: 22px;
+  }
+
+  .top-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn {
+    background-color: #262627;
+    color: #f5f1ea;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin: 10px;
+  }
+}
