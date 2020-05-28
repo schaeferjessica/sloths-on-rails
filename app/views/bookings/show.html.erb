@@ -6,7 +6,7 @@
   <div class="show-photo">
   <% if @booking.sloth.photos.attached? %>
     <% @booking.sloth.photos.each do |photo| %>
-      <%= cl_image_tag booking.sloth.photos.first.key, :width=>400, :height=>300, :crop=>"fill" %>
+      <%= cl_image_tag photo.key, :width=>400, :height=>300, :crop=>"fill" %>
     <% end %>
   <% end %>
   </div>
