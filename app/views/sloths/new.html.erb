@@ -1,5 +1,8 @@
-<h1>New Sloth</h1>
-<div class="container">
+<div class="container new-form">
+  <div class="contex-form">
+    <h1>list your Sloth</h1>
+    <p>lets set up your listing</p>
+  </div>
 <%= simple_form_for @sloth do |f| %>
   <%= f.input :name %>
   <%= f.input :address, input_html: { class: 'auto-address-fill' } %>
