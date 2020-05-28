@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
     @booking.total_cost = days.to_i * @sloth.price
 
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking was successfully updated.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
     else
       render :edit
     end
