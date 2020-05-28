@@ -75,7 +75,7 @@
 
   .btn-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .btn {
@@ -88,5 +88,27 @@
 
   .btn:hover {
     background-color: #313131de
+  }
+
+  .form-wrapper {
+    margin: 50px 0;
+
+    input {
+      background-color: #262627;
+      color: #f5f1ea;
+      padding: 10px 20px;
+      border-radius: 3px;
+      margin: 10px;
+    }
+  }
+
+  h1 {
+    text-align: left;
+  }
+
+  #booking_end_date,
+  #booking_start_date {
+    border: none;
+    background-color: white;
   }
 }
