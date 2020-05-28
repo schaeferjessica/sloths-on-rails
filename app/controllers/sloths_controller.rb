@@ -22,6 +22,7 @@ class SlothsController < ApplicationController
     @sloth = Sloth.find(params[:id])
     @booking = Booking.new
     authorize @booking
+    @reviews = Review.joins(:booking).where(bookings: { sloth_id: @sloth.id })
   end
 
   def new
