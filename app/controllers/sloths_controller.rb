@@ -19,6 +19,9 @@ class SlothsController < ApplicationController
         lat: @sloth.latitude,
         lng: @sloth.longitude
       }]
+    @sloth = Sloth.find(params[:id])
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new
