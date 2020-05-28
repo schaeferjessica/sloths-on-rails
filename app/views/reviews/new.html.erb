@@ -1,10 +1,11 @@
 <div class="container">
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit "Add a review", class: "btn btn-primary" %>
-<% end %>
+  <h2>Add a review for <%= @booking.sloth.name.upcase %></h2>
+  <%= simple_form_for [@booking, @review] do |f| %>
+	<%= f.input :content %>
+     <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+     <%= f.submit "Send your review" %>
+  <% end %>
 
-<%= link_to "Back", booking_path(@booking), class: "btn btn-primary" %>
-<%= link_to "Home", sloths_path, class: "btn btn-primary" %>
+	<%= link_to "Back", booking_path(@booking), class: "btn btn-primary" %>
+	<%= link_to "Home", sloths_path, class: "btn btn-primary" %>
 </div>
