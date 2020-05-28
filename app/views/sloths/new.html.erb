@@ -2,7 +2,7 @@
 <div class="container">
 <%= simple_form_for @sloth do |f| %>
   <%= f.input :name %>
-  <%= f.input :address %>
+  <%= f.input :address, input_html: { class: 'auto-address-fill' } %>
   <%= f.input :details %>
   <%= f.input :price %>
   <%= f.input :photos, as: :file, input_html: { multiple: true }, required: true %>
