@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     authorize @review
     if @review.save
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking), notice: 'Your review was successfully saved.'
     else
       flash[:alert] = "Something went wrong."
       render :new

@@ -10,3 +10,5 @@ const initStarRating = () => {
 };
 
 export { initStarRating };
+
+$(document).ready() 
