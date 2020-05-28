@@ -1,20 +1,95 @@
+.signup  {
 
-.signup {
+  h2 {
+    margin: 40px;
+  }
+
+  form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
 
-    .container {
-      max-width: 700px;
-    }
+  .form-inputs {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
 
   .form-control {
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
+    background-color: white;
   }
 
   .btn-ghost {
     width: 100px;
+  }
+
+  .simple_form {
+    margin-bottom: 35px;
+  }
+
+  .login-link {
+    font-size: 16px;
+    font-weight: 200;
+  }
+}
+
+.signin {
+
+  h2 {
+    margin: 40px;
+  }
+
+  a {
+    font-size: 16px;
+    font-weight: 200;
+  }
+
+  .form-check {
+    text-align: right;
+  }
+
+  .form-check-label {
+    font-size: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group.email.optional.user_email {
+    margin-bottom: 50px;
+  }
+
+  .form-control {
+    border: none;
+    border-radius: 3px;
+    background-color: white;
+  }
+
+  input.btn {
+    color: #4a4a4a;
+    border: 1px solid #4a4a4a;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    margin: 30px;
+  }
+
+  input.btn:hover {
+    border: 1px solid #262627;
+    color: #262627;
+  }
+
+  lable {
+    font-weight: 100;
   }
 }
