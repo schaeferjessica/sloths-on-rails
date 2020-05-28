@@ -19,13 +19,14 @@
   background-position: center;
   height: 200px;
   display: flex;
-  justify-content: left;
-  font-size: 22px;
-  font-weight: normal;
   border-radius: 4px;
   position: relative;
   padding: 10px;
   margin-bottom: 14px;
+
+  h2 {
+    font-weight: 400;
+  }
 
   .name {
     color: white;

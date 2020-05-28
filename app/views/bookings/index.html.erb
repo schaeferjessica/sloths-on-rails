@@ -1,6 +1,5 @@
-<div class="container">
-<h1>Your bookings</h1>
-🦥🦥🦥
+<div class="container bookings">
+<h1>your Sloth bookings</h1>
   <div class="cards">
     <% @bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
@@ -14,9 +13,7 @@
     <% end %>
   </div>
 
-
-
   <div >
-    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
+    <%= link_to "Back", sloths_path, class: "btn m-3"%>
   </div>
 </div>
