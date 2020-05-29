@@ -19,12 +19,16 @@
     <p>Found in Central and South America, sloths call the tall trees their home, as their long claws make it difficult for them to walk on the ground. World Animal Protection works around the globe to protect wild animals like sloths, elephants, otters, and tigers.</p>
   </div>
   <div class="cards">
-    <% @sloths.each do |sloth| %>
-      <%= link_to sloth_path(sloth) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
-          <h2 class="name"><%= sloth.name %></h2>
-          <h4 class="address"><%= sloth.address %></h4>
-        </div>
+    <% if @sloths.empty? %>
+        <h2>Sorry no sloths available in the area</h2>
+    <% else %>
+      <% @sloths.each do |sloth| %>
+        <%= link_to sloth_path(sloth) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
+            <h2 class="name"><%= sloth.name %></h2>
+            <h4 class="address"><%= sloth.address %></h4>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
