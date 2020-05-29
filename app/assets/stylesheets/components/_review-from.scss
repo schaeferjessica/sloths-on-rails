@@ -1,0 +1,27 @@
+.review-form {
+    margin: 40px;
+
+    h2 {
+      margin: 20px;
+    }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .form-control {
+    border: none;
+    padding: 0;
+  }
+
+  .review-btn {
+    border: 2px solid black;
+    padding: 10px 30px;
+    border-radius: 3px;
+    margin-bottom: 60px;
+  }
+}
+
