@@ -31,15 +31,22 @@
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0 3px 5px -7px #dfdfdf;
-    margin: 30px 0;
+    margin: 28px 0;
+    padding-bottom: 15px;
+  }
+
+  .one-review {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-bottom: 12px;
   }
 
   .review {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 15px;
-    margin-left: 15px;
+
 
     .fa-heart {
       font-size: 18px;
