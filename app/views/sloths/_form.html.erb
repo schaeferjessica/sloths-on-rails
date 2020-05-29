@@ -1,18 +1,19 @@
-<div class ="container">
 <%= simple_form_for(@sloth) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :details %>
-    <%= f.input :price %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <div class="form-wrapper">
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :price %>
+    </div>
+      <%= f.input :details %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
-</div>
+
