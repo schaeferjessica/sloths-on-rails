@@ -13,7 +13,7 @@
           <%= link_to "List a Sloth", new_sloth_path, class: "btn btn-dark" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Listings", bookings_path, class: "nav-link" %>
+          <%= link_to "Listings", user_listing_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Bookings", bookings_path, class: "nav-link" %>
