@@ -1,1 +1,16 @@
-listing.html.erb
+<div class="container bookings">
+<h1>Your listings</h1>
+  <div class="cards">
+    <% @listings_owner.each do |sloth| %>
+      <%= link_to sloth_path(sloth) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
+          <h2 class="name"><%= sloth.name %></h2>
+          <h4 class="cost">Price: <%= sloth.price %>€</h4>
+        </div>
+      <% end %>
+    <% end %>
+   </div>
+    <div >
+      <%= link_to "Back", sloths_path, class: "btn m-3"%>
+    </div>
+</div>

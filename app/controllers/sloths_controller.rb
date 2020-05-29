@@ -1,5 +1,5 @@
 class SlothsController < ApplicationController
-  before_action :set_sloth, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_sloth, only: [ :show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
@@ -12,6 +12,11 @@ class SlothsController < ApplicationController
       params_maps
     end
   end
+
+  def listing
+    @listings_owner = Sloth.where(user: current_user)
+    authorize @listings_owner
+  end 
 
   def show
     # @sloths = Sloth.geocoded # returns sloths with coordinates

@@ -17,6 +17,10 @@ class SlothPolicy < ApplicationPolicy
     true
   end
 
+  def listing?
+    true
+  end
+
   def update?
     owner_or_admin?
   end
