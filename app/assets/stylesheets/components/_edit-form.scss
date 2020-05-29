@@ -1,0 +1,47 @@
+.from-edit {
+  margin-top: 50px;
+
+  h2 {
+    text-align: left;
+  }
+}
+
+.edit-form {
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .date-wrapper {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    width: 48%;
+  }
+
+  .form-control {
+    background-color: white;
+  }
+
+  .btn {
+    background-color: #262627;
+    color: #f5f1ea;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin: 10px;
+  }
+
+  .btn:hover {
+    background-color: #313131de
+  }
+
+  form {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

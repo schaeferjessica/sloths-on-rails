@@ -36,7 +36,7 @@
     <%= link_to "Back", bookings_path, class: "btn btn-primary m-3"%>
 
     <% if current_user == @booking.user %>
-      <%= link_to "Edit booking", edit_booking_path(@booking), class: "btn btn-primary m-3"%>
+      <%= link_to "Edit booking", edit_booking_path(@booking), class: "btn m-3"%>
     <% end %>
 
     <%# if current_user == @booking.user %>
@@ -44,7 +44,7 @@
     <%# end %>
 
     <% if current_user == @booking.user %>
-      <%= link_to "Delete booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary m-3"%>
+      <%= link_to "Delete booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn m-3"%>
     <% end %>
   </div>
 </div>
