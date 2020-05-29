@@ -1,15 +1,15 @@
 <div class="container">
   <h1>Your booking for <%= @booking.sloth.name.upcase %></h1>
   <h4>From <%= @booking.start_date %> to <%= @booking.end_date %></h4>
-  <h5>Total cost: <%= @booking.total_cost %></h5>
+  <h5>Total cost: <%= @booking.total_cost %>€</h5>
   <i class="fas fa-map-pin"><%= @booking.sloth.address %></i>
+  <div class="show-photo">
   <% if @booking.sloth.photos.attached? %>
     <% @booking.sloth.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag photo.key, :width=>400, :height=>300, :crop=>"fill" %>
     <% end %>
-  <% else %>
-    <%= image_tag 'https://www.publicdomainpictures.net/pictures/190000/velka/sloth-drawing.jpg', width: 350 %>
   <% end %>
+  </div>
 
   <div>
   <h3>ABOUT <%= @booking.sloth.name.upcase %></h3>
@@ -17,10 +17,8 @@
   </div>
 
   <div >
-    <%= link_to "Back", sloths_path, class: "btn btn-primary m-3"%>
-  </div>
+    <%= link_to "Back", bookings_path, class: "btn btn-primary m-3"%>
 
-  <div>
   <% if current_user == @booking.user %>
     <%= link_to "Edit booking", edit_booking_path(@booking), class: "btn btn-primary m-3"%>
   <% end %>

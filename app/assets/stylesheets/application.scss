@@ -1,3 +1,4 @@
+@import "jquery-bar-rating/dist/themes/css-stars";
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -8,6 +9,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "mapbox-gl/dist/mapbox-gl";
+@import "flatpickr/dist/flatpickr";
 
 // color
 $base-color: #f5f1ea;
@@ -36,6 +38,8 @@ $font-sans: "Open Sans", sans-serif;
 @import "components/button";
 @import "components/signup";
 @import "components/banner";
+@import "components/form";
+@import "components/show";
 @import "pages/index";
 
 html {
@@ -78,10 +82,10 @@ img {
 }
 
 h1 {
+  font-family: $font-sans;
   font-size: 38px;
   color: $black-color;
   font-weight: normal;
-  font-family: $font-roboto;
 }
 
 h2 {
@@ -90,7 +94,14 @@ h2 {
   color: $black-color;
   font-weight: 300;
   line-height: 38px;
-  font-family: $font-roboto;
+}
+
+h3 {
+  font-family: $font-sans;
+  font-size: 18px;
+  color: $black-color;
+  font-weight: 300;
+  line-height: 38px;
 }
 
 p {

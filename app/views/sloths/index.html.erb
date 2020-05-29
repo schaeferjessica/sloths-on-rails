@@ -1,11 +1,10 @@
 <div id="banner" class="card-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.mos.cms.futurecdn.net/sZEyugnMdPtgJzC8wU27sU.jpg)">
   <h1>Book your sleepy friend today.</h1>
-
   <%= form_tag sloths_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control auto-address-fill",
-    placeholder: "Which location?"
+    placeholder: "berlin"
   %>
   <%= submit_tag "Search", class: "btn btn-search" %>
 <% end %>
@@ -16,15 +15,17 @@
 
 <div class= "container">
   <div class= "context">
-    <h2>10 facts about sloths, natures slowest animals</h2>
-    <p>Found in Central and South America, sloths call the tall trees their home, as their long claws make it difficult for them to walk on the ground. World Animal Protection works around the globe to protect wild animals like sloths, elephants, otters, and tigers, and keep them in their natural habitats instead of allowing them to be subjected to the cruelty of the animal entertainment industry or exotic pet trade.</p>
+    <h2>Find your Sloth companion!</h2>
+    <p>Found in Central and South America, sloths call the tall trees their home, as their long claws make it difficult for them to walk on the ground. World Animal Protection works around the globe to protect wild animals like sloths, elephants, otters, and tigers.</p>
   </div>
   <div class="cards">
     <% @sloths.each do |sloth| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
-        <%= link_to sloth.name, sloth_path(sloth), class: "name" %>
-        <%= link_to sloth.address, sloth_path(sloth), class: "address" %>
-      </div>
+      <%= link_to sloth_path(sloth) do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path sloth.photos.first.key %>)">
+          <h2 class="name"><%= sloth.name %></h2>
+          <h4 class="address"><%= sloth.address %></h4>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

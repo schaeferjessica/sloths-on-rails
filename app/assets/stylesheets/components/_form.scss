@@ -1,0 +1,67 @@
+.new-form {
+  margin-bottom: 40px;
+
+  .contex-form {
+      text-align: left;
+      margin: 50px 0;
+  }
+
+  .form-group {
+    margin-bottom: 50px;
+  }
+
+  label.file {
+    background-color: white;
+    color: black;
+    padding: 30px 60px;
+    width: 100%;
+  }
+
+  #sloth_photos {
+    display: none;
+  }
+
+  input {
+    border: none;
+  }
+
+  .form-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sloth_name {
+    flex: 1 1 auto;
+  }
+
+  .sloth_address {
+    flex: 1 1 auto;
+    margin: 0 20px;
+  }
+
+  .sloth_price {
+    flex: 0 1 auto;
+  }
+
+  #sloth_details {
+   height: 190px;
+  }
+
+  input.btn {
+    background-color: #262627;
+    color: #f5f1ea;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin: 10px;
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-back {
+    margin: 15px;
+  }
+}

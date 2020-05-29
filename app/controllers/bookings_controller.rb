@@ -22,8 +22,13 @@ class BookingsController < ApplicationController
     @booking.status = "Pending"
     authorize @booking
 
+    start_date = @booking.start_date.to_date #total_cost logic
+    end_date = @booking.end_date.to_date
+    days = end_date - start_date
+    @booking.total_cost = days.to_i * @sloth.price
+
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -34,7 +39,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking was successfully updated.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
     else
       render :edit
     end

@@ -1,6 +1,10 @@
-<h1>Editing Sloth</h1>
-
-<%= render 'form', sloth: @sloth %>
-
-<%= link_to 'Show', @sloth %> |
-<%= link_to 'Back', sloths_path %>
+<div class ="container new-form">
+   <div class="contex-form">
+      <h1>edit your Sloth</h1>
+      <p>lets edit your listing</p>
+  </div>
+  <%= render 'form', sloth: @sloth %>
+  <div class="btn-wrapper">
+    <%= link_to 'Back', @sloth, class: "btn-back" %>
+  </div>
+</div>

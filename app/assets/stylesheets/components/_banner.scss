@@ -5,7 +5,31 @@
   flex-direction: column;
 
   h1 {
-    color: $base-color;
+    color: #f5f1ea;
     margin: 30px;
+  }
+
+  form {
+    display: flex;
+  }
+
+  .btn-search {
+    border-radius: 3px;
+    font-size: 15px;
+    border: 1px solid #f5f1ea;
+    padding: 0px 10px;
+    margin-left: 20px;
+    color: #f5f1ea;
+  }
+
+  .btn-search:hover {
+    background-color: #262627;
+    border: 1px solid #262627;
+    border: none;
+    color: #f5f1ea;
+  }
+
+  input.form-control {
+    border: none;
   }
 }
