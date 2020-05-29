@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
+    @owner_bookings = @bookings.where(user: current_user)
   end
 
   def show
