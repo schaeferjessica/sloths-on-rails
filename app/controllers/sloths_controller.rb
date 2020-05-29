@@ -1,12 +1,14 @@
 class SlothsController < ApplicationController
   before_action :set_sloth, only: [ :show, :edit, :update, :destroy ]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
     @sloths = policy_scope(Sloth).order(created_at: :desc)
-
     if params[:query].present?
       @sloths = Sloth.near(params[:query], 1000).geocoded
-      params_maps
+      unless @sloths.empty?
+        params_maps
+      end
     else
       @sloths = Sloth.geocoded # returns sloths with coordinates
       params_maps
@@ -25,7 +27,7 @@ class SlothsController < ApplicationController
     authorize @booking
     @reviews = @sloth.reviews
   end
-  
+
   def new
     @sloth = Sloth.new
     authorize @sloth
